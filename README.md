@@ -1,4 +1,9 @@
-##
+## Process 
+
+- I used crewAiagent framework to build the research crew. 
+- The results are saved in a json file. 
+- the results are then parsed and saved to a sqlite database. 
+- I then created a fastapi app to manage the database and provide an api to query the database.
 
 
 # Startup Research API
