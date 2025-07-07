@@ -67,16 +67,7 @@ This will:
 - Save results to `research_results.json`
 - Automatically save to SQLite database
 
-### Option B: Run Batch Processing (Recommended for reliability)
-```bash
-python research_startups_batch.py
-```
 
-This approach:
-- Processes startups in smaller batches (3 at a time)
-- Reduces API rate limit issues
-- Saves intermediate results
-- More reliable for large datasets
 
 ### Option C: Parse Existing Results
 If you already have result files:
