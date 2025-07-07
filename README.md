@@ -3,7 +3,21 @@
 - I used crewAiagent framework to build the research crew. 
 - The results are saved in a json file. 
 - the results are then parsed and saved to a sqlite database. 
-- I then created a fastapi app to manage the database and provide an api to query the database.
+- I then created a fastapi app to manage the database and provide an api to query the database via chatgpt
+- I limited to 10 startups for testing purposes. 
+- I got stuck gettig the  agents to use info from the prevoius agent
+
+
+## Improvements for prod
+In a Production environment i would
+- setup a pipline to save the resulte in a vectordb
+  - setup a vector db like Pinecone or Weaviate to store the embeddings
+  - crewai research results -> vector embeddings -> vector db -> chatgpt or ollama local LLM for privacy 
+- setup a RAg solution to query the vector database instead of passing the sqlite data to chatgpt
+- I would dockerize the solution
+- i would use a more robust database like postgres for storing the startup data
+
+
 
 
 # Startup Research API
@@ -334,12 +348,9 @@ curl -X POST "http://localhost:8000/query" \
 startup_research/
 ├── api.py                          # FastAPI application
 ├── research_startups.py            # Main research crew script
-├── research_startups_batch.py      # Batch processing script
 ├── parse_results_to_db.py         # Standalone result parser
 ├── query_startup_db.py            # Database query utility
-├── test_api.py                    # API testing script
 ├── requirement.txt                # Python dependencies
-├── .env                           # Environment variables
 ├── startup_research.db            # SQLite database (created automatically)
 ├── research_results.json          # Research results (generated)
 └── README.md                      # This file
